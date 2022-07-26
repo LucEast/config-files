@@ -6,11 +6,9 @@ I also created a neat [installer](setup.sh) to easiely copy the configfiles to t
 
 
 ## Installation
-- [config-files ✏️](#config-files-️)
-  - [Installation](#installation)
-    - [help](#help)
-    - [install](#install)
-    - [delete](#delete)
+ • [help](#help)\
+ • [install](#install)\
+ • [delete](#delete) 
 
 ```
 git clone https://github.com/LucEast/config-files.git; cd config-files
