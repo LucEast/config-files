@@ -1,4 +1,11 @@
 #!/bin/bash
+
+# Setting colored output
+RED='\033[0;31m'
+YELLOW='\033[0;33m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
 help()
 {
     ############################################################
@@ -144,43 +151,27 @@ POSITIONAL_ARGS=()
 while [[ $# -gt 0 ]]; do
     case $1 in
         -i|--install)
-            if [[ -n ${CHECKED[3]} ]]; then
-                # echo "${CHECKED[3]}"
-                cp -r --parents ${CHECKED[3]} ~
-            fi
-            if [[ -n ${CHECKED[2]} ]]; then
-                # echo "${CHECKED[2]}"
-                cp -r --parents ${CHECKED[2]} ~
-            fi
-            if [[ -n ${CHECKED[1]} ]]; then
-                # echo "${CHECKED[1]}"
-                cp -r --parents ${CHECKED[1]} ~
-            fi
-            if [[ -n ${CHECKED[0]} ]]; then
-                # echo "${CHECKED[0]}"
-                cp -r --parents ${CHECKED[0]} ~
-            fi
+            for CHECK in ${CHECKED[@]}
+            do
+              cp -r --parents $CHECK ~
+              echo -e "${GREEN}installed $CHECK ${NC}" 
+            done
             shift # past argument
+            echo -e "${GREEN}Successfully installed ${CHECKED[@]} ${NC}"
             ;;
         -d|--delete)
-            if [[ -n ${CHECKED[3]} ]]; then
-                # echo "${CHECKED[3]}"
-                rm -r ~/${CHECKED[3]}
-            fi
-            if [[ -n ${CHECKED[2]} ]]; then
-                # echo "${CHECKED[2]}"
-                rm -r ~/${CHECKED[2]}
-            fi
-            if [[ -n ${CHECKED[1]} ]]; then
-                # echo "${CHECKED[1]}"
-                rm -r ~/${CHECKED[1]} 
-            fi
-            if [[ -n ${CHECKED[0]} ]]; then
-                # echo "${CHECKED[0]}"
-                rm -r ~/${CHECKED[0]} 
-            fi
+            for CHECK in ${CHECKED[@]}
+            do
+              if test -e ~/$CHECK; then
+                rm -r ~/$CHECK
+                echo -e "${RED}deleted $CHECK ${NC}"
+              fi
+            done
             shift # past argument
-            find $HOME -empty -type d -delete
+            if [ $(find $HOME -empty -type d | wc -l) -gt 0 ]; then
+              echo "Deleted" $(find $HOME -empty -type d | wc -l) "empty directories" "(" $(find $HOME -empty -type d) ")"
+              find $HOME -empty -type d -delete
+            fi
             ;;
         -h|--help)
             help
