@@ -146,38 +146,38 @@ while [[ $# -gt 0 ]]; do
         -i|--install)
             if [[ -n ${CHECKED[3]} ]]; then
                 # echo "${CHECKED[3]}"
-                cp -r --parents ${CHECKED[3]} ~/test
+                cp -r --parents ${CHECKED[3]} ~
             fi
             if [[ -n ${CHECKED[2]} ]]; then
                 # echo "${CHECKED[2]}"
-                cp -r --parents ${CHECKED[2]} ~/test
+                cp -r --parents ${CHECKED[2]} ~
             fi
             if [[ -n ${CHECKED[1]} ]]; then
                 # echo "${CHECKED[1]}"
-                cp -r --parents ${CHECKED[1]} ~/test
+                cp -r --parents ${CHECKED[1]} ~
             fi
             if [[ -n ${CHECKED[0]} ]]; then
                 # echo "${CHECKED[0]}"
-                cp -r --parents ${CHECKED[0]} ~/test
+                cp -r --parents ${CHECKED[0]} ~
             fi
             shift # past argument
             ;;
         -d|--delete)
             if [[ -n ${CHECKED[3]} ]]; then
                 # echo "${CHECKED[3]}"
-                rm -r ~/test/${CHECKED[3]}
+                rm -r ~/${CHECKED[3]}
             fi
             if [[ -n ${CHECKED[2]} ]]; then
                 # echo "${CHECKED[2]}"
-                rm -r ~/test/${CHECKED[2]}
+                rm -r ~/${CHECKED[2]}
             fi
             if [[ -n ${CHECKED[1]} ]]; then
                 # echo "${CHECKED[1]}"
-                rm -r ~/test/${CHECKED[1]} 
+                rm -r ~/${CHECKED[1]} 
             fi
             if [[ -n ${CHECKED[0]} ]]; then
                 # echo "${CHECKED[0]}"
-                rm -r ~/test/${CHECKED[0]} 
+                rm -r ~/${CHECKED[0]} 
             fi
             shift # past argument
             find $HOME -empty -type d -delete
