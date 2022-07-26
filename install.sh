@@ -12,14 +12,14 @@ help()
     #                           Help                           #
     ############################################################
     # Display Help
-    echo "This script copies the selected config files to their final location"
-    echo
-    echo "Syntax: $(basename $0) [-i|d|h]"
-    echo "options:"
-    echo "-i | --install    Installs selected configs."
-    echo "-d | --delete     Deletes selected configs and removes all empty directorys under $HOME."
-    echo "-h | --help       Print this Help."
-    echo
+    echo -e "${YELLOW}This script copies the selected config files to their final location"
+    echo -e
+    echo -e "Syntax: ./$(basename $0) [-i|d|h]"
+    echo -e "options:"
+    echo -e "-i | --install    Installs selected configs."
+    echo -e "-d | --delete     Deletes selected configs and removes all empty directorys under $HOME."
+    echo -e "-h | --help       Print this Help.${NC}"
+    echo -e 
     exit 2
 }
 
