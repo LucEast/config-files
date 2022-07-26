@@ -2,10 +2,16 @@
 Here I store my config files. Feel free to use them.
 I also created a neat [installer](setup.sh) to easiely copy the configfiles to their belonged loaction or delete them. \
 
-[installation](#installation)
+- [installation](#installation)
 
 
-## Instalation
+## Installation
+- [config-files ✏️](#config-files-️)
+  - [Installation](#installation)
+    - [help](#help)
+    - [install](#install)
+    - [delete](#delete)
+
 ```
 git clone https://github.com/LucEast/config-files.git; cd config-files
 ./setup.sh
