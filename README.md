@@ -1,5 +1,36 @@
-# Just my config-files
-Here I store my config files
+# config-files ✏️
+Here I store my config files. Feel free to use them.
+I also created a neat [installer](setup.sh) to easiely copy the configfiles to their belonged loaction or delete them. \
+
+[installation](#installation)
+
+
+## Instalation
+```
+git clone https://github.com/LucEast/config-files.git; cd config-files
+./setup.sh
+```
+**You will need to add arguments (-i|-d) to the script to work.**\
+You can navigate through the script via the up and down arrow keys.\
+To select a config-file, press space.\
+Once selected, press Return to commit.
+
+### help
+![help](https://raw.githubusercontent.com/LucEast/config-files/main/screenshots/help.png)
+
+### install
+```
+./setup.sh -i
+```
+![install](https://raw.githubusercontent.com/LucEast/config-files/main/screenshots/install.png)
+
+### delete
+```
+./setup.sh -d
+```
+![delete](https://raw.githubusercontent.com/LucEast/config-files/main/screenshots/delete.png)
+
+
 
 
 
