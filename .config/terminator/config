@@ -1,0 +1,27 @@
+[global_config]
+  title_transmit_bg_color = "#62aeef"
+  title_receive_bg_color = "#d41919"
+  title_inactive_fg_color = "#ffffff"
+  title_inactive_bg_color = "#23252e"
+  enabled_plugins = LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler, TerminatorThemes
+  title_use_system_font = False
+  title_font = MesloLGS NF 10
+[keybindings]
+[profiles]
+  [[default]]
+    background_color = "#282c34"
+    background_darkness = 1.0
+    cursor_color = "#d0d0d0"
+    font = MesloLGS NF 12
+    foreground_color = "#c5c8c6"
+    palette = "#000000:#e06b74:#87c38a:#e5c07a:#62aeef:#c678dd:#55b6c2:#abb2bf:#000000:#ff797b:#b5e990:#ffdd87:#68afff:#ec8aff:#65d9e8:#cdd5e5"
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]
