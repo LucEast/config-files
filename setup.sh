@@ -157,7 +157,7 @@ while [[ $# -gt 0 ]]; do
               echo -e "${GREEN}installed $CHECK ${NC}" 
             done
             shift # past argument
-            echo -e "${GREEN}Successfully installed ${CHECKED[@]} ${NC}"
+            # echo -e "${GREEN}Successfully installed ${CHECKED[@]} ${NC}"
             ;;
         -d|--delete)
             for CHECK in ${CHECKED[@]}
