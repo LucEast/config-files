@@ -129,8 +129,8 @@ fi
 
 # Usage Example
 
-OPTIONS_VALUES=(".zshrc" ".tmux.conf" ".vimrc" ".config/terminator/config")
-OPTIONS_LABELS=("zsh" "tmux" "vim" "terminator")
+OPTIONS_VALUES=(".zshrc" ".tmux.conf" ".vimrc" ".config/terminator/config" ".local/share/fonts/truetype/MesloLGS/*")
+OPTIONS_LABELS=("zsh" "tmux" "vim" "terminator" "MesloLGS fonts")
 
 for i in "${!OPTIONS_VALUES[@]}"; do
 	OPTIONS_STRING+="${OPTIONS_VALUES[$i]} (${OPTIONS_LABELS[$i]});"
