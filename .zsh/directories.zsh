@@ -32,7 +32,13 @@ function d () {
 # compdef _dirs d
 
 # List directory contents
-alias lsa='ls -lah'
-alias l='exa --group-directories-first --icons -la'
-alias ll='exa --group-directories-first --icons -l'
-alias la='ls -lAh'
+# check if exa exists on the system
+if command -v exa &>/dev/null; then
+    # If exa exists, create the alias with icons and long format
+    alias ll='exa --group-directories-first --icons -l'
+    alias l='exa --group-directories-first --icons -la'
+else
+    # If exa does not exist, fallback to ls with long format
+    alias ll='ls -lah'
+    alias l='ls -lh'
+fi
