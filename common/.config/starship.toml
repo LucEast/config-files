@@ -1,13 +1,12 @@
 format = """
-[](#9A348E)\
 $env_var\
 $username\
-[](bg:#DA627D fg:#9A348E)\
+[](bg:#769ff0 fg:#a3aed2)\
 $directory\
-[](fg:#DA627D bg:#FCA17D)\
+[](fg:#769ff0 bg:#394260)\
 $git_branch\
 $git_status\
-[](fg:#FCA17D bg:#86BBD8)\
+[](fg:#394260 bg:#212736)\
 $c\
 $elixir\
 $elm\
@@ -15,32 +14,39 @@ $golang\
 $haskell\
 $java\
 $julia\
+$python\
 $nodejs\
 $nim\
 $rust\
 $scala\
-[](fg:#86BBD8 bg:#06969A)\
+[](fg:#212736 bg:#1d2230)\
 $docker_context\
-[](fg:#06969A bg:#33658A)\
 $time\
-[ ](fg:#33658A)\
+[](fg:#1d2230)\
 \n$character
 """
+# Change command timeout from 500 to 1000 ms
+command_timeout = 1000
 
 # Disable the blank line at the start of the prompt
 # add_newline = false
 
 [env_var.STARSHIP_DISTRO]
-format = '[$env_value ](white bg:#9A348E)'
+format = '[ $env_value ](white bg:#a3aed2)'
 variable = "STARSHIP_DISTRO"
 disabled = false
+
+[env_var.STARSHIP_DEVICE]
+format = 'on [$env_value](white bg:#a3aed2)'
+variable = "STARSHIP_DEVICE"
+disabled = true
 
 # You can also replace your username with a neat symbol like   or disable this
 # and use the os module below
 [username]
 show_always = true
-style_user = "bg:#9A348E"
-style_root = "bg:#9A348E"
+style_user = "bg:#a3aed2"
+style_root = "bg:#a3aed2"
 format = '[$user ]($style)'
 disabled = false
 
@@ -48,13 +54,14 @@ disabled = false
 # represents the current operating system
 [os]
 style = "bg:#9A348E"
-disabled = true # Disabled by default
+disabled = true      # Disabled by default
 
 [directory]
-style = "bg:#DA627D"
-format = "[ $path ]($style)"
+style = "bg:#769ff0"
+format = "[ $path ]($style)[$read_only]($read_only_style)"
 truncation_length = 3
 truncation_symbol = "…/"
+home_symbol = " ~"
 
 # Here is how you can shorten some long paths by text replacement
 # similar to mapped_locations in Oh My Posh:
@@ -71,7 +78,7 @@ truncation_symbol = "…/"
 
 [c]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#212736"
 format = '[ $symbol ($version) ]($style)'
 
 [docker_context]
@@ -81,65 +88,82 @@ format = '[ $symbol $context ]($style) $path'
 
 [elixir]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#212736"
 format = '[ $symbol ($version) ]($style)'
 
 [elm]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#212736"
 format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
 symbol = ""
-style = "bg:#FCA17D"
+style = "bg:#394260"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:#FCA17D"
+style = "bg:#394260"
 format = '[$all_status$ahead_behind ]($style)'
+conflicted = "🏳"
+up_to_date = " "
+untracked = " "
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+stashed = " "
+modified = " "
+staged = '[++\($count\) ](bg:#394260 green)'
+renamed = "襁 "
+deleted = " "
 
 [golang]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#212736"
 format = '[ $symbol ($version) ]($style)'
 
 [haskell]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#212736"
 format = '[ $symbol ($version) ]($style)'
 
 [java]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#212736"
 format = '[ $symbol ($version) ]($style)'
 
 [julia]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#212736"
 format = '[ $symbol ($version) ]($style)'
 
 [nodejs]
-symbol = ""
-style = "bg:#86BBD8"
+symbol = " "
+style = "bg:#212736"
 format = '[ $symbol ($version) ]($style)'
 
 [nim]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#212736"
 format = '[ $symbol ($version) ]($style)'
+
+[python]
+symbol = " "
+style = "bg:#212736"
+format = '[ ${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+detect_extensions = ['py']
 
 [rust]
 symbol = ""
-style = "bg:#86BBD8"
+style = "bg:#212736"
 format = '[ $symbol ($version) ]($style)'
 
 [scala]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#212736"
 format = '[ $symbol ($version) ]($style)'
 
 [time]
 disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "bg:#33658A"
+time_format = "%R"             # Hour:Minute Format
+style = "bg:#1d2230"
 format = '[  $time ]($style)'
