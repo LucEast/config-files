@@ -1,169 +1,175 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 format = """
-$env_var\
+[](color_water_park)\
+$os\
 $username\
-[](bg:#769ff0 fg:#a3aed2)\
+[](bg:color_baltic fg:color_water_park)\
 $directory\
-[](fg:#769ff0 bg:#394260)\
+[](fg:color_baltic bg:color_corfu_waters)\
 $git_branch\
 $git_status\
-[](fg:#394260 bg:#212736)\
+[](fg:color_corfu_waters bg:color_pristine_seas)\
 $c\
-$elixir\
-$elm\
-$golang\
-$haskell\
-$java\
-$julia\
-$python\
-$nodejs\
-$nim\
 $rust\
-$scala\
-[](fg:#212736 bg:#1d2230)\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+[](fg:color_pristine_seas bg:color_starry_night)\
 $docker_context\
+$kubernetes\
+[](fg:color_starry_night bg:color_maroccan_blue)\
 $time\
-[](fg:#1d2230)\
-\n$character
-"""
-# Change command timeout from 500 to 1000 ms
-command_timeout = 1000
+[ ](fg:color_maroccan_blue)\
+$line_break$character"""
 
-# Disable the blank line at the start of the prompt
-# add_newline = false
+palette = 'gruvbox_dark'
 
-[env_var.STARSHIP_DISTRO]
-format = '[ $env_value ](white bg:#a3aed2)'
-variable = "STARSHIP_DISTRO"
+[palettes.gruvbox_dark]
+color_fg0 = '#fbf1c7'
+color_bg1 = '#3c3836'
+color_bg3 = '#665c54'
+# color_blue = '#458588'
+# color_aqua = '#689d6a'
+# color_green = '#98971a'
+# color_orange = '#d65d0e'
+# color_purple = '#b16286'
+# color_red = '#cc241d'
+# color_yellow = '#d79921'
+color_water_park = '#68b29b'
+color_baltic = '#509ca3'
+color_corfu_waters = '#3b86ab'
+color_pristine_seas = '#35729d'
+color_starry_night = '#2f5e8f'
+color_maroccan_blue = '#264c75'
+
+
+[os]
 disabled = false
+style = "bg:color_water_park fg:color_fg0"
 
-[env_var.STARSHIP_DEVICE]
-format = 'on [$env_value](white bg:#a3aed2)'
-variable = "STARSHIP_DEVICE"
-disabled = true
+[os.symbols]
+Windows = ""
+Ubuntu = ""
+SUSE = ""
+Raspbian = ""
+Mint = ""
+Macos = ""
+Manjaro = ""
+Linux = ""
+Gentoo = ""
+Fedora = ""
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = ""
+Artix = ""
+CentOS = ""
+Debian = ""
+Redhat = ""
+RedHatEnterprise = ""
 
-# You can also replace your username with a neat symbol like   or disable this
-# and use the os module below
 [username]
 show_always = true
-style_user = "bg:#a3aed2"
-style_root = "bg:#a3aed2"
-format = '[$user ]($style)'
-disabled = false
-
-# An alternative to the username module which displays a symbol that
-# represents the current operating system
-[os]
-style = "bg:#9A348E"
-disabled = true      # Disabled by default
+style_user = "bg:color_water_park fg:color_fg0"
+style_root = "bg:color_water_park fg:color_fg0"
+format = '[ $user ]($style)'
 
 [directory]
-style = "bg:#769ff0"
-format = "[ $path ]($style)[$read_only]($read_only_style)"
+style = "fg:color_fg0 bg:color_baltic"
+format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
-home_symbol = " ~"
 
-# Here is how you can shorten some long paths by text replacement
-# similar to mapped_locations in Oh My Posh:
 [directory.substitutions]
-"Documents" = " "
+"Documents" = " "
 "Downloads" = " "
 "Music" = " "
 "Pictures" = " "
-# Keep in mind that the order matters. For example:
-# "Important Documents" = "  "
-# will not be replaced, because "Documents" was already substituted before.
-# So either put "Important Documents" before "Documents" or use the substituted version:
-# "Important  " = "  "
-
-[c]
-symbol = " "
-style = "bg:#212736"
-format = '[ $symbol ($version) ]($style)'
-
-[docker_context]
-symbol = " "
-style = "bg:#06969A"
-format = '[ $symbol $context ]($style) $path'
-
-[elixir]
-symbol = " "
-style = "bg:#212736"
-format = '[ $symbol ($version) ]($style)'
-
-[elm]
-symbol = " "
-style = "bg:#212736"
-format = '[ $symbol ($version) ]($style)'
+"Developer" = "󰣪 "
 
 [git_branch]
 symbol = ""
-style = "bg:#394260"
-format = '[ $symbol $branch ]($style)'
+style = "bg:color_corfu_waters"
+format = '[[ $symbol $branch ](fg:color_fg0 bg:color_corfu_waters)]($style)'
 
 [git_status]
-style = "bg:#394260"
-format = '[$all_status$ahead_behind ]($style)'
-conflicted = "🏳"
-up_to_date = " "
-untracked = " "
-ahead = "⇡${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-behind = "⇣${count}"
-stashed = " "
-modified = " "
-staged = '[++\($count\) ](bg:#394260 green)'
-renamed = "襁 "
-deleted = " "
-
-[golang]
-symbol = " "
-style = "bg:#212736"
-format = '[ $symbol ($version) ]($style)'
-
-[haskell]
-symbol = " "
-style = "bg:#212736"
-format = '[ $symbol ($version) ]($style)'
-
-[java]
-symbol = " "
-style = "bg:#212736"
-format = '[ $symbol ($version) ]($style)'
-
-[julia]
-symbol = " "
-style = "bg:#212736"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:color_corfu_waters"
+format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_corfu_waters)]($style)'
 
 [nodejs]
-symbol = " "
-style = "bg:#212736"
-format = '[ $symbol ($version) ]($style)'
+symbol = ""
+style = "bg:color_pristine_seas"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_pristine_seas)]($style)'
 
-[nim]
-symbol = " "
-style = "bg:#212736"
-format = '[ $symbol ($version) ]($style)'
-
-[python]
-symbol = " "
-style = "bg:#212736"
-format = '[ ${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
-detect_extensions = ['py']
+[c]
+symbol = " "
+style = "bg:color_pristine_seas"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_pristine_seas)]($style)'
 
 [rust]
 symbol = ""
-style = "bg:#212736"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:color_pristine_seas"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_pristine_seas)]($style)'
 
-[scala]
-symbol = " "
-style = "bg:#212736"
-format = '[ $symbol ($version) ]($style)'
+[golang]
+symbol = ""
+style = "bg:color_pristine_seas"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_pristine_seas)]($style)'
+
+[php]
+symbol = ""
+style = "bg:color_pristine_seas"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_pristine_seas)]($style)'
+
+[java]
+symbol = " "
+style = "bg:color_pristine_seas"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_pristine_seas)]($style)'
+
+[kotlin]
+symbol = ""
+style = "bg:color_pristine_seas"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_pristine_seas)]($style)'
+
+[haskell]
+symbol = ""
+style = "bg:color_pristine_seas"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_pristine_seas)]($style)'
+
+[python]
+symbol = ""
+style = "bg:color_pristine_seas"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_pristine_seas)]($style)'
+
+[docker_context]
+symbol = ""
+style = "bg:color_starry_night"
+format = '[[ $symbol( $context) ](fg:color_fg0 bg:color_starry_night)]($style)'
+
+[kubernetes]
+disabled = false
+style = "bg:color_starry_night"
+format = '[[ $symbol( $context) ](fg:color_fg0 bg:color_starry_night)]($style)'
 
 [time]
 disabled = false
-time_format = "%R"             # Hour:Minute Format
-style = "bg:#1d2230"
-format = '[  $time ]($style)'
+time_format = "%R"
+style = "bg:color_maroccan_blue"
+format = '[[  $time ](fg:color_fg0 bg:color_maroccan_blue)]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[](bold fg:color_green)'
+error_symbol = '[](bold fg:color_red)'
+vimcmd_symbol = '[](bold fg:color_green)'
+vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
+vimcmd_replace_symbol = '[](bold fg:color_purple)'
+vimcmd_visual_symbol = '[](bold fg:color_baltic)'

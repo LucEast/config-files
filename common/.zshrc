@@ -131,3 +131,4 @@ fi
 [[ -f ~/.zsh/kubernetes.zsh ]] && source ~/.zsh/kubernetes.zsh
 
 eval "$(starship init zsh)"
+eval "$(starship completions zsh)"
