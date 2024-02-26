@@ -7,7 +7,6 @@
     - [Via package manager](#via-package-manager)
     - [Using NodeSource PPA](#using-nodesource-ppa)
 
-
 ## Install neovim
 
 ```bash
