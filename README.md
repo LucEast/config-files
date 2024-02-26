@@ -59,7 +59,10 @@ Once selected, press Return to commit.
 
 ## Starship\.rs
 
-[Starship.rs](https://starship.rs)
+My [Starship.rs](https://starship.rs) config has the following modules:
+OS, Name, Path, Git, Python, Kubernetes / Docker, Time
+It looks like this:
+![starship](screenshots/starship.png)
 
 ## terminator
 
@@ -75,7 +78,8 @@ Once selected, press Return to commit.
 
 ## Warp.dev
 
-[Warp.dev](https://www.warp.dev)
+My [Warp.dev](https://www.warp.dev) config looks like this:
+![warp](screenshots/warp.png)
 
 ## ZSH
 
