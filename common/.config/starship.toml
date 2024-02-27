@@ -24,7 +24,7 @@ $docker_context\
 $kubernetes\
 [](fg:color_starry_night bg:color_maroccan_blue)\
 $time\
-[ ](fg:color_maroccan_blue)\
+[ ](fg:color_maroccan_blue)\
 $line_break$character"""
 
 palette = 'gruvbox_dark'
@@ -154,7 +154,7 @@ format = '[[ $symbol( $context) ](fg:color_fg0 bg:color_starry_night)]($style)'
 [kubernetes]
 disabled = false
 style = "bg:color_starry_night"
-format = '[[ $symbol( $context) ](fg:color_fg0 bg:color_starry_night)]($style)'
+format = '[[ $symbol( $context:$namespace) ](fg:color_fg0 bg:color_starry_night)]($style)'
 # detect_files = ['k8s']
 
 [time]
