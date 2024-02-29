@@ -144,7 +144,7 @@ format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_pristine_seas)]($style)'
 [python]
 symbol = ""
 style = "bg:color_pristine_seas"
-format = '[[ $symbol( $venv $version) ](fg:color_fg0 bg:color_pristine_seas)]($style)'
+format = '[[ $symbol( $virtualenv $version) ](fg:color_fg0 bg:color_pristine_seas)]($style)'
 
 [docker_context]
 symbol = ""
@@ -154,7 +154,7 @@ format = '[[ $symbol( $context) ](fg:color_fg0 bg:color_starry_night)]($style)'
 [kubernetes]
 disabled = false
 style = "bg:color_starry_night"
-format = '[[ $symbol( $context:$namespace) ](fg:color_fg0 bg:color_starry_night)]($style)'
+format = '[[ $symbol($context:$namespace) ](fg:color_fg0 bg:color_starry_night)]($style)'
 # detect_files = ['k8s']
 
 [time]
