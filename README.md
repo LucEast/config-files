@@ -24,7 +24,7 @@ This repository contains config-files for the following applications.
  • [delete](#delete)
 
 ```bash
-git clone https://github.com/LucEast/config-files.git; cd config-files
+git clone https://github.com/LucEast/dotfiles.git; cd dotfiles
 ./setup.sh
 ```
 
